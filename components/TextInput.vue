@@ -27,6 +27,9 @@
                 autocomplete="off"
             >
         </client-only>
+        <span v-if="error" class="text-red-500 text-[14px] font-semibold">
+            {{ error }}
+        </span>
     </div>
                     
 </template>
