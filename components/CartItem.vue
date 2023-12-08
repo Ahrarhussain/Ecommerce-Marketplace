@@ -22,7 +22,7 @@
         <img 
             class="rounded-md md:w-[150px] w-[90px]" 
             :src="product.url"
-            alt="product image"
+            alt="Product"
         >
 
         <div class="overflow-hidden pl-2 w-full">
@@ -40,7 +40,7 @@
             </div>
 
             <div class="text-xl font-semibold">
-                $ <span class="font-bold">{{ product.price / 100 }}</span>
+                ₹ <span class="font-bold">{{ product.price / 100 }}</span>
             </div>
 
             <p class="text-[#009A66] text-xs font-semibold pt-1">
@@ -62,6 +62,7 @@
         </div>
     </div>
 </template>
+
 <script setup>
 import { useUserStore } from '~/stores/user';
 const userStore = useUserStore()

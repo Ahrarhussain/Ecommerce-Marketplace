@@ -19,7 +19,7 @@ const route = useRoute()
 let windowWidth = ref(process.client ? window.innerWidth : '')
 
 onMounted(() => {
-    userStore.isLoading = false
+    userStore.isLoading = true
     window.addEventListener('resize', function () {
         windowWidth.value = window.innerWidth;
     });

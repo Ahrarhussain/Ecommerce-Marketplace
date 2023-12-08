@@ -7,7 +7,6 @@
                         v-if="currentImage"
                         class="rounded-lg object-fit"
                         :src="currentImage"
-                        alt="current image"
                     >
                     <div v-if="images[0] !== ''" class="flex items-center justify-center mt-2">
                         <div v-for="image in images">
@@ -18,14 +17,13 @@
                                 class="rounded-md object-fit border-[3px] cursor-pointer"
                                 :class="currentImage === image ? 'border-[#FF5353]' : ''"
                                 :src="image"
-                                alt="mini image"
                             >
                         </div>
                     </div>
                 </div>
                 <div class="md:w-[60%] bg-white p-3 rounded-lg">
                     <div v-if="product && product.data">
-                        <p class="mb-2">{{ product.data.title }} </p>
+                        <p class="mb-2">{{ product.data.title }}</p>
                         <p class="font-light text-[12px] mb-2">{{ product.data.description }}</p>
                     </div>
 
@@ -48,7 +46,7 @@
                     <div class="border-b" />
 
                     <div class="flex items-center justify-start gap-2 my-2">
-                        <div class="text-xl font-bold">$ {{ priceComputed }}</div>
+                        <div class="text-xl font-bold">₹ {{ priceComputed }}</div>
                         <span class="bg-[#F5F5F5] border text-[#C08562] text-[9px] font-semibold px-1.5 rounded-sm">70% off</span>
                     </div>
 
@@ -80,7 +78,6 @@
                         <div v-if="isInCart">Is Added</div>
                         <div v-else>Add to Cart</div>
                     </button>
-
                 </div>
             </div>
         </div>
@@ -91,6 +88,7 @@
 import MainLayout from '~/layouts/MainLayout.vue';
 import { useUserStore } from '~/stores/user';
 const userStore = useUserStore()
+
 const route = useRoute()
 
 let product = ref(null)

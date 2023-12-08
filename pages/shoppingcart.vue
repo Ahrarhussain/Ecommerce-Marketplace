@@ -1,13 +1,13 @@
 <template>
     <MainLayout>
         <div id="ShoppingCartPage" class="mt-4 max-w-[1200px] mx-auto px-2">
-            <div v-if="false" class="h-[500px] flex items-center justify-center">
+            <div v-if="!userStore.cart.length" class="h-[500px] flex items-center justify-center">
                 <div class="pt-20">
                     <img 
                         class="mx-auto"
                         width="250"
                         src="/cart-empty.png"
-                        alt="NO ITEMS"
+                        alt="Cart empty"
                     >
 
                     <div class="text-xl text-center mt-4">No items yet?</div>
@@ -37,7 +37,7 @@
                     <div class="bg-white rounded-lg p-4">
 
                         <div class="text-2xl font-bold mb-2">
-                            Shopping Cart (0)
+                            Shopping Cart ({{ userStore.cart.length }})
                         </div>
 
                     </div>
@@ -47,7 +47,7 @@
                     </div>
 
                     <div id="Items" class="bg-white rounded-lg p-4 mt-4">
-                        <div v-for="product in products">
+                        <div v-for="product in userStore.cart">
                             <CartItem 
                                 :product="product" 
                                 :selectedArray="selectedArray"
@@ -64,7 +64,7 @@
                         <div class="flex items-center justify-between my-4">
                             <div class="font-semibold">Total</div>
                             <div class="text-2xl font-semibold">
-                                $ <span class="font-extrabold">{{ totalPriceComputed }}</span>
+                                ₹ <span class="font-extrabold">{{ totalPriceComputed }}</span>
                             </div>
                         </div>
                         <button 
@@ -92,36 +92,34 @@
                         <div class="text-lg font-semibold mb-2">Payment methods</div>
                         <div class="flex items-center justify-start gap-8 my-4">
                             <div v-for="card in cards">
-                                <img class="h-6" :src="card" alt="payment card">
+                                <img class="h-6" :src="card" alt="Card Image">
                             </div>
                         </div>
 
+                        <div class="border-b"/>
+
+                        <div class="text-lg font-semibold mb-2 mt-2">Buyer Protection</div>
+                        <p class="my-2">
+                            Get full refund if the item is not as described or if is not delivered
+                        </p>
+
                     </div>
                 </div>
-
-
-            </div>            
+            </div>
         </div>
     </MainLayout>
-
 </template>
+
 <script setup>
 import MainLayout from '~/layouts/MainLayout.vue';
 import { useUserStore } from '~/stores/user';
 const userStore = useUserStore()
+const user = useSupabaseUser()
 
 let selectedArray = ref([])
 
 onMounted(() => {
     setTimeout(() => userStore.isLoading = false, 200)
-})
-
-const totalPriceComputed = computed(() => {
-    let price = 0
-    userStore.cart.forEach(prod => {
-        price += prod.price
-    })
-    return price / 100
 })
 
 const cards = ref([
@@ -131,7 +129,16 @@ const cards = ref([
     'applepay.png',
 ])
 
+const totalPriceComputed = computed(() => {
+    let price = 0
+    userStore.cart.forEach(prod => {
+        price += prod.price
+    })
+    return price / 100
+})
+
 const selectedRadioFunc = (e) => {
+
     if (!selectedArray.value.length) {
         selectedArray.value.push(e)
         return
@@ -146,23 +153,16 @@ const selectedRadioFunc = (e) => {
     })
 }
 
-const products = [
-    {id:1, title: "Title1", description: "Description1", url: "http://picsum.photos/id/7/800/800", price:999},
-    {id:2, title: "Title1", description: "Description1", url: "http://picsum.photos/id/71/800/800", price:929}
-]
-
 const goToCheckout = () => {
     let ids = []
-    userStore.checkout = []   //don't want duplicates
+    userStore.checkout = []
 
     selectedArray.value.forEach(item => ids.push(item.id))
 
-    //item that has same id
     let res = userStore.cart.filter((item) => {
         return ids.indexOf(item.id) != -1
     })
 
-    //added toRaw to avoid proxy wrapper
     res.forEach(item => userStore.checkout.push(toRaw(item)))
 
     return navigateTo('/checkout')

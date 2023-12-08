@@ -70,7 +70,7 @@
                             size="25" 
                             class="mr-2"
                         />
-                    </button>     
+                    </button>
                 </form>
             </div>
         </div>
@@ -145,6 +145,7 @@ const submit = async () => {
         isWorking.value = false
         return
     }
+
     if (isUpdate.value) {
         await useFetch(`/api/prisma/update-address/${currentAddress.value.data.id}`, {
             method: 'PATCH',
@@ -178,6 +179,5 @@ const submit = async () => {
     isWorking.value = false
 
     return navigateTo('/checkout')
-    
 }
 </script>

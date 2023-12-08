@@ -5,7 +5,7 @@
                 <img 
                     width="170"
                     src="/AliExpress-logo.png"
-                    alt="AliExpress"
+                    alt="AliExpress Logo"
                 >
             </NuxtLink>
 
@@ -39,6 +39,7 @@
                         <span class="pl-4">My Orders</span>
                     </div>
                 </li>
+
                 <li 
                     @click="goTo('shoppingcart')"
                     class="
@@ -124,8 +125,8 @@
 import { useUserStore } from '~/stores/user';
 const userStore = useUserStore()
 
-// const client = useSupabaseClient()
-// const user = useSupabaseUser()
+const client = useSupabaseClient()
+const user = useSupabaseUser()
 
 const goTo = (url) => {
     userStore.isMenuOverlay = false

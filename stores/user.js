@@ -1,3 +1,4 @@
+// stores/counter.js
 import { defineStore } from 'pinia'
 
 export const useUserStore = defineStore('user', {
