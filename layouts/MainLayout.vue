@@ -134,7 +134,7 @@
                                         <img class="rounded-md" width="40" :src="item.url" alt="item image">
                                         <div class="truncate ml-2">{{ item.title }}</div>
                                     </div>
-                                    <div class="truncate">${{ item.price / 100 }}</div>
+                                    <div class="truncate">₹{{ item.price / 100 }}</div>
                                 </NuxtLink>
                             </div>
                         </div>
