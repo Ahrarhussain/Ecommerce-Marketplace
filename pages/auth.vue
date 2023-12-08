@@ -2,7 +2,7 @@
     <div id="AuthPage" class="w-full h-[100vh] bg-white">
         <div class="w-full flex items-center justify-center p-5 border-b border-b-gray-300">
             <NuxtLink to="/" class="min-w-[170px]">
-                <img width="170" src="/AliExpress-logo.png" alt="AliExpress">
+                <img width="170" src="/AliExpress-logo.png" alt="AliExpress logo">
             </NuxtLink>
         </div>
 
@@ -26,7 +26,7 @@
                     font-semibold
                 "
             >
-                <img class="w-full max-w-[30px]" src="/google-logo.png" alt="Google">
+                <img class="w-full max-w-[30px]" src="/google-logo.png" alt="google">
                 <div>Google</div>
             </button>
 
@@ -47,7 +47,7 @@
                     font-semibold
                 "
             >
-                <img class="w-full max-w-[30px]" src="/github-logo.png" alt="Github">
+                <img class="w-full max-w-[30px]" src="/github-logo.png" alt="github">
                 <div>Github</div>
             </button>
 
@@ -56,17 +56,15 @@
 </template>
 
 <script setup>
-// const client = useSupabaseClient()
-// const user = useSupabaseUser()
+const client = useSupabaseClient()
+const user = useSupabaseUser()
 
-//If user is present I would like to move away from auth page
-// watchEffect(() => {
-//     if (user.value) {
-//         return navigateTo('/')
-//     }
-// })
+watchEffect(() => {
+    if (user.value) {
+        return navigateTo('/')
+    }
+})
 
-//prov is provider is github and google in our case
 const login = async (prov) => {
   const { data, error } = await client.auth.signInWithOAuth({
     provider: prov,

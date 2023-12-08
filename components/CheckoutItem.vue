@@ -3,7 +3,7 @@
         <img 
             class="rounded-md md:w-[150px] w-[90px]" 
             :src="product.url"
-            alt="checkout product image"
+            :alt="product.name"
         >
 
         <div class="overflow-hidden pl-2">
@@ -13,12 +13,13 @@
             </div>
 
             <div class="text-lg font-semibold mt-2">
-                $ <span class="font-bold">{{ product.price / 100 }}</span>
+                ₹ <span class="font-bold">{{ product.price / 100 }}</span>
             </div>
         </div>
     </div>
 </template>
+
 <script setup>
-const props = defineProps(['product', 'selectedArray'])
+const props = defineProps(['product'])
 const { product } = toRefs(props)
 </script>

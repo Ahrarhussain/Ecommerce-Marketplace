@@ -13,7 +13,7 @@
             <img 
                 class="rounded-t "
                 :src="product.url"
-                alt="Product Image"
+                :alt="product.title"
             >
 
             <div id="ProductDetails">
