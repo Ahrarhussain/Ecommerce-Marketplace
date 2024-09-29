@@ -51,7 +51,7 @@
                     </div>
 
                     <p class="text-[#009A66] text-xs font-semibold pt-1">
-                        Free 11-day delivery over ￡8.28
+                        Free 11-day delivery over ₹100
                     </p>
 
                     <p class="text-[#009A66] text-xs font-semibold pt-1">
