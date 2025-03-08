@@ -3,8 +3,7 @@
 ## App Setup (localhost)
 
 ```
-git clone https://github.com/Ahrarhussain/aliexpress-clone.git
-
+git clone https://github.com/Ahrarhussain/Ecommerce-Marketplace.git
 cp .env.example .env
 
 npm i
