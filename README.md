@@ -1,4 +1,4 @@
-# AliExpress Clone / (aliexpress-clone)
+# Ecommerce-Marketplace
 
 ## App Setup (localhost)
 
