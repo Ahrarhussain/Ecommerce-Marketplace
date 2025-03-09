@@ -3,9 +3,9 @@
         <div class="flex items-center justify-between py-5">
             <NuxtLink to="/" @click="userStore.isMenuOverlay = false">
                 <img 
-                    width="170"
-                    src="/AliExpress-logo.png"
-                    alt="AliExpress Logo"
+                    width="270"
+                    src="/Ecommerce-logo.png"
+                    alt="Ecommerce-Marketplace-Logo"
                 >
             </NuxtLink>
 
