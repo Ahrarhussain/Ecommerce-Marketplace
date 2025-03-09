@@ -19,7 +19,7 @@
                 "
             >
                 <li class="border-r border-r-gray-400 px-3 hover:text-[#FF4646] cursor-pointer">
-                    Sell on AliExpress
+                    Sell on Ecommerce-Marketplace
                 </li>
                 <li class="border-r border-r-gray-400 px-3 hover:text-[#FF4646] cursor-pointer">
                     Cookie Preferences
@@ -50,7 +50,7 @@
                         class="absolute bg-white w-[220px] text-[#333333] z-40 top-[38px] -left-[100px] border-x border-b"
                     >
                         <div v-if="!user">
-                            <div class="text-semibold text-[15px] my-4 px-3">Welcome to AliExpress!</div>
+                            <div class="text-semibold text-[15px] my-4 px-3">Welcome to Ecommerce-Marketplace!</div>
                             <div class="flex items-center gap-1 px-3 mb-3">
                                 <NuxtLink 
                                     to="/auth"
@@ -85,12 +85,12 @@
             id="MainHeader" 
             class="flex items-center w-full bg-white"
         >
-            <div class="flex lg:justify-start justify-between gap-10 max-w-[1150px] w-full px-3 py-5 mx-auto">
+            <div class="flex lg:justify-start justify-between gap-10 max-w-[1150px] w-full pr-3 py-5 mx-auto rounded-b-md">
                 <NuxtLink to="/" class="min-w-[170px]">
                     <img 
-                        width="170"
-                        src="/AliExpress-logo.png"
-                        alt="AliExpress Logo"
+                        width="270"
+                        src="/Ecommerce-logo.png"
+                        alt="Ecommerce-Marketplace-Logo"
                     />
                 </NuxtLink>
 
